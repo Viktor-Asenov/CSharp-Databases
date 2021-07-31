@@ -1,2 +1,0 @@
-SELECT Count(*)
-	FROM WizzardDeposits
