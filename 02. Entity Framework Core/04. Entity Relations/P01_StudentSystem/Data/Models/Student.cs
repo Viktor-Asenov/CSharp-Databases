@@ -20,7 +20,7 @@ namespace P01_StudentSystem.Data.Models
         [Required]
         public string Name { get; set; }
 
-        [Column(TypeName = "nvarchar(10)")]
+        [Column(TypeName = "varchar(10)")]
         public string PhoneNumber { get; set; }
 
         public DateTime RegisteredOn { get; set; }
