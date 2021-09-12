@@ -13,9 +13,9 @@ namespace ProductShop
 {
     public class StartUp
     {
-        private const string DataPath = @"C:\Users\usr\source\repos\C# DB\Entity Framework Core\08. JSON Processing\ProductShop\Datasets";
+        private const string DataPath = @"...\...\Datasets";
 
-        private const string ResultPath = @"C:\Users\usr\source\repos\C# DB\Entity Framework Core\08. JSON Processing\ProductShop\Datasets\Result";
+        private const string ResultPath = @"...\...\Datasets\Result";
 
         public static void Main(string[] args)
         {
