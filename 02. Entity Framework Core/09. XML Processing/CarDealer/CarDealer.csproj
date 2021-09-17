@@ -32,8 +32,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Dtos\Export\" />
-  </ItemGroup>
-
 </Project>
