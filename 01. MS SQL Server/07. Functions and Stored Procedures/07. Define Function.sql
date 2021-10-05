@@ -3,7 +3,7 @@ RETURNS BIT
 BEGIN
 	DECLARE @count INT = 1;
 
-	WHILE (@count < LEN(@word))
+	WHILE (@count <= LEN(@word))
 	BEGIN
 		DECLARE @currentLetter CHAR(1) = SUBSTRING(@word, @count, 1);
 		
