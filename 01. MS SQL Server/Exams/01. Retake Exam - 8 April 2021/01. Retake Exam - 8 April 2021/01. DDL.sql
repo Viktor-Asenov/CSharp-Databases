@@ -1,0 +1,82 @@
+CREATE TABLE Users
+(
+	Id INT IDENTITY PRIMARY KEY,
+	Username NVARCHAR(30) UNIQUE NOT NULL,
+	Password NVARCHAR(50) NOT NULL,
+	Name NVARCHAR(50),
+	Birthdate DATETIME,
+	Age INT CHECK (Age > 14 AND Age <= 110),
+	Email VARCHAR(50) NOT NULL
+)
+
+CREATE TABLE Departments
+(
+	Id INT IDENTITY PRIMARY KEY,
+	Name NVARCHAR(50) NOT NULL
+)
+
+CREATE TABLE Employees
+(
+	Id INT IDENTITY PRIMARY KEY,
+	FirstName NVARCHAR(25),
+	LastName NVARCHAR(25),
+	Birthdate DATETIME,
+	Age INT CHECK (Age > 18 AND Age <= 110),
+	DepartmentId INT
+
+	CONSTRAINT FK_Employees_Departments
+	FOREIGN KEY (DepartmentId)
+	REFERENCES Departments(Id)
+)
+DROP DATABASE Service
+
+CREATE TABLE Categories
+(
+	Id INT IDENTITY PRIMARY KEY,
+	Name NVARCHAR(50) NOT NULL,
+	DepartmentId INT NOT NULL
+
+	CONSTRAINT FK_Categories_Departments
+	FOREIGN KEY (DepartmentId)
+	REFERENCES Departments(Id)
+)
+
+CREATE TABLE Status
+(
+	Id INT IDENTITY PRIMARY KEY,
+	Label NVARCHAR(30) NOT NULL
+)
+
+CREATE TABLE Reports
+(
+	Id INT IDENTITY PRIMARY KEY,
+	CategoryId INT NOT NULL,
+	StatusId INT NOT NULL,
+	OpenDate DATETIME NOT NULL,
+	CloseDate DATETIME,
+	Description NVARCHAR(200) NOT NULL,
+	UserId INT NOT NULL,
+	EmployeeId INT
+
+	CONSTRAINT FK_Reports_Categories
+	FOREIGN KEY (CategoryId)
+	REFERENCES Categories(Id),
+
+	CONSTRAINT FK_Reports_Status
+	FOREIGN KEY (StatusId)
+	REFERENCES Status(Id),
+
+	CONSTRAINT FK_Reports_Users
+	FOREIGN KEY (UserId)
+	REFERENCES Users(Id),
+
+	CONSTRAINT FK_Reports_Employees
+	FOREIGN KEY (EmployeeId)
+	REFERENCES Employees(Id)
+)
+
+
+
+
+
+
