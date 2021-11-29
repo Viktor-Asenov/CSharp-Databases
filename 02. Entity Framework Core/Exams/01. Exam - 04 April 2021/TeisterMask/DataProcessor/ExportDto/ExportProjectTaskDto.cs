@@ -1,7 +1,7 @@
-﻿namespace TeisterMask.DataProcessor.ExportDto
-{
-    using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
+namespace TeisterMask.DataProcessor.ExportDto
+{
     [XmlType("Task")]
     public class ExportProjectTaskDto
     {

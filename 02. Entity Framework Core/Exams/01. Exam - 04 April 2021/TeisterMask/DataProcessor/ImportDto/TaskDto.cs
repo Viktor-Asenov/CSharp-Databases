@@ -1,26 +1,23 @@
 ﻿namespace TeisterMask.DataProcessor.ImportDto
 {
-    using System.Xml.Serialization;
-
     using System.ComponentModel.DataAnnotations;
-
-    using Shared;
+    using System.Xml.Serialization;
+    using TeisterMask.Data.Models.Enums;
 
     [XmlType("Task")]
-    public class ImportProjectTasksDto
+    public class TaskDto
     {
-        [Required]
-        [MinLength(GlobalConstants.TaskNameMinLength)]
-        [MaxLength(GlobalConstants.ProjectNameMaxLength)]
         [XmlElement("Name")]
+        [Required]
+        [StringLength(40, MinimumLength = 2)]
         public string Name { get; set; }
 
-        [Required]
         [XmlElement("OpenDate")]
+        [Required]
         public string OpenDate { get; set; }
 
-        [Required]
         [XmlElement("DueDate")]
+        [Required]
         public string DueDate { get; set; }
 
         [XmlElement("ExecutionType")]

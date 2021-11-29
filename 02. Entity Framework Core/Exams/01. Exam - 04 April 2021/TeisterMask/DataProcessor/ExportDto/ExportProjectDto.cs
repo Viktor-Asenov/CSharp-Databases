@@ -1,5 +1,6 @@
 ﻿namespace TeisterMask.DataProcessor.ExportDto
 {
+    using System.Collections.Generic;
     using System.Xml.Serialization;
 
     [XmlType("Project")]
@@ -15,6 +16,6 @@
         public int TasksCount { get; set; }
 
         [XmlArray("Tasks")]
-        public ExportProjectTaskDto[] Tasks { get; set; }
+        public List<ExportProjectTaskDto> Tasks { get; set; }
     }
 }
